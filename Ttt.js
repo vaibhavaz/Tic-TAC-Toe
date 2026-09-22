@@ -144,6 +144,7 @@ function triggerAiTurn() {
 		boardElement.removeAttribute('aria-busy');
 		if (!gameOver) {
 			currentPlayer = HUMAN;
+			renderBoard();
 			updateTurnStatus();
 		}
 	}, 420);
