@@ -95,6 +95,27 @@ body::before {
   min-height: 660px;
   padding: 70px 0 65px;
 }
+.mode-switch {
+  display: inline-flex;
+  gap: 10px;
+  padding: 6px;
+  margin-bottom: 18px;
+  border: 1px solid var(--line);
+  background: rgba(250, 249, 245, 0.8);
+}
+.mode-button {
+  border: 0;
+  background: transparent;
+  color: var(--muted);
+  padding: 8px 12px;
+  cursor: pointer;
+  font: 500 12px "Space Grotesk", sans-serif;
+  transition: all 180ms ease;
+}
+.mode-button.active {
+  background: var(--ink);
+  color: var(--paper);
+}
 .eyebrow {
   color: var(--coral);
   margin: 0 0 22px;
