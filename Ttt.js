@@ -11,6 +11,9 @@ const playerOneLabelElement = document.querySelector('#player-one-label');
 const playerTwoLabelElement = document.querySelector('#player-two-label');
 const modeLabelElement = document.querySelector('#mode-label');
 const playerChipLabelElement = document.querySelector('#player-chip-label');
+const themeToggleButton = document.querySelector('.theme-toggle');
+const themeToggleText = document.querySelector('.theme-toggle-text');
+const themeToggleIcon = document.querySelector('.theme-toggle-icon');
 
 const HUMAN = 'X';
 const AI = 'O';
@@ -195,11 +198,19 @@ function restartGame() {
 	updateTurnStatus();
 }
 
+function toggleTheme() {
+	const isDark = document.body.classList.toggle('dark-theme');
+	themeToggleButton.setAttribute('aria-pressed', String(isDark));
+	themeToggleText.textContent = isDark ? 'Light' : 'Dark';
+	themeToggleIcon.textContent = isDark ? '☀' : '☾';
+}
+
 cells.forEach(cell => cell.addEventListener('click', handleHumanMove));
 restartButton.addEventListener('click', restartGame);
 modeButtons.forEach(button => {
 	button.addEventListener('click', () => switchMode(button.dataset.mode));
 });
+themeToggleButton.addEventListener('click', toggleTheme);
 updateModeLabels();
 updateScoreboard();
 renderBoard();
